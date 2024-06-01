@@ -6,8 +6,11 @@
         "esModuleInterop": true,
         "skipLibCheck": true,
         "paths": {
-            "@reporter/*": ["config/reporter/*"],
-            "@utils/*": ["support/utils/*"]
+            "@reporter/*": ["./config/reporter/*"],
+            "@screens/*": ["./screens/*"],
+            "@data/*": ["./support/data/*"],
+            "@helpers/*": ["./support/helpers/*"],
+            "@utils/*": ["./support/utils/*"]
         },
         "types": [
             "node",

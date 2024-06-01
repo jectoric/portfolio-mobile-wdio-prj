@@ -1,6 +1,5 @@
 import * as fs from 'fs';
 
-// Shared function to remove a directory
 export function removeDirectory(name: string): void {
     if (fs.existsSync(name)) {
         fs.rm(name, { recursive: true }, (err) => {

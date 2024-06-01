@@ -1,4 +1,4 @@
-import allureReporter from '@wdio/allure-reporter';
+const allureReporter = require('@wdio/allure-reporter').default
 
 export function step(name: string) {
     return function decorator(
