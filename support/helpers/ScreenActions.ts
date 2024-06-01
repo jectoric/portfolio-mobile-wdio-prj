@@ -71,14 +71,15 @@ export default class ScreenActions {
                 {
                     timeout: timeout * 1000,
                     timeoutMsg: `Element '${this.selector}' is still displayed after '${timeout}' sec!`,
-                    interval: 1000, // 1 second interval
+                    interval: 1000,
                 }
             );
-        } catch (error) {
+        } catch (error: any) {
             const customErrorMessage = `Element '${this.selector}' is still displayed after '${timeout}' sec! `;
             throw new Error(`${customErrorMessage}Caught Error Details: ${error.message}`);
         }
     }
+
 
     /**
      * This function types the specified text into an element after ensuring it is present.

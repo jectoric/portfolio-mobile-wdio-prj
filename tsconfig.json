@@ -5,6 +5,7 @@
         "strict": true,
         "esModuleInterop": true,
         "skipLibCheck": true,
+        "experimentalDecorators": true,
         "paths": {
             "@reporter/*": ["./config/reporter/*"],
             "@screens/*": ["./screens/*"],

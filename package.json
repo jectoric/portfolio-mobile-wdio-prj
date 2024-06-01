@@ -4,7 +4,12 @@
   "version": "1.0.0",
   "description": "This is an example mobile WDIO Apiium project which shows the level of my automation testing skills",
   "scripts": {
-    "eslint:validate": "eslint ."
+    "eslint:validate": "eslint .",
+    "eslint:fix": "eslint . --color --fix --quiet",
+    "report:allure:open": "allure open",
+    "run-all-autotests": "wdio config/webdriver/wdio.debug.conf.ts --suite google_translate_all",
+    "run-functional-autotests": "wdio config/webdriver/wdio.debug.conf.ts --suite google_translate_functional",
+    "run-non-functional-autotests": "wdio config/webdriver/wdio.debug.conf.ts --suite google_translate_non_functional"
   },
   "keywords": [
     "WebdriverIO",
