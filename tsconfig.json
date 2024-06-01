@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "commonjs",
+        "strict": true,
+        "esModuleInterop": true,
+        "skipLibCheck": true,
+        "paths": {
+            "@reporter/*": ["config/reporter/*"],
+            "@utils/*": ["support/utils/*"]
+        },
+        "types": [
+            "node",
+            "@wdio/mocha-framework",
+            "@wdio/types",
+            "@wdio/appium-service",
+            "@wdio/globals/types"
+        ],
+    },
+    "include": [
+        "./**/*",
+        "./**/*.ts",
+        "./**/**/*.ts"
+    ]
+}
