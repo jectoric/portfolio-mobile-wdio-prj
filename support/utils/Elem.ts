@@ -80,7 +80,6 @@ export default class ScreenActions {
         }
     }
 
-
     /**
      * This function types the specified text into an element after ensuring it is present.
      * @param {String} text - The text to be typed into the element.

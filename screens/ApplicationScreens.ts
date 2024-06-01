@@ -3,7 +3,7 @@ import SearchLanguageScreen from './application/SearchLanguage.screen';
 
 export class ApplicationScreens {
     public mainScreen = MainScreen;
-    public searchLanguageScreen = SearchLanguageScreen
+    public searchLanguageScreen = SearchLanguageScreen;
 }
 
 export interface ScreenInterface<T extends ScreenInterface<T>> {

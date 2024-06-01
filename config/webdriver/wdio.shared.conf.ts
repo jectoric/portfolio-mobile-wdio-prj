@@ -62,9 +62,9 @@ export const config: WebdriverIO.Config = {
 
     async beforeTest(test) {
         const testName = test.title;
-        if (testName.includes('[BUG => ')) {
-            const bugMatch = testName.match(/\[BUG => (\S+)]/);
-            if (bugMatch) addJiraTicketToDescription(bugMatch[1]);
+        if (testName.includes('[ISSUE => ')) {
+            const issueMatch = testName.match(/\[BUG => (\S+)]/);
+            if (issueMatch) addJiraTicketToDescription(issueMatch[1]);
         }
     },
 
