@@ -58,9 +58,8 @@ LOG_LVL=silent #optional log level, available 'trace' | 'debug' | 'info' | 'warn
 ```
 ### 4. Run tests
 1. Open android studio and click on play button for created device
-2. Start appium server by using command on terminal `appium --base-path /wd/hub`
-3. Create `app` forlder in project root and add the `.apk` file to it
-4. Run decired suite from `pakage.json`, for example `run-functional-autotests`. Or by using command from project root:
+2. Create `app` forlder in project root and add the `.apk` file to it
+3. Run decired suite from `pakage.json`, for example `run-functional-autotests`. Or by using command from project root:
 ```
 npm run run-functional-autotests
 ```

@@ -4,6 +4,8 @@ import { config as sharedConf } from './wdio.shared.conf';
 export const config: WebdriverIO.Config = {
     ...sharedConf,
     port: 4723,
+    path: '/wd/hub',
+    hostname: 'localhost',
     services: ['appium'],
     capabilities: [{
         'appium:platformName': process.env.PLATFORM_NAME || '',

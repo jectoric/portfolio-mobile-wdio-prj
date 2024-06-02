@@ -3,6 +3,7 @@ import { WebDriverLogTypes } from '@wdio/types/build/Options';
 import { addJiraTicketToDescription } from "@reporter/AllureDecorators";
 import { generateAllureReport, removeAllureDirectories } from '@reporter/AllureReporter';
 
+const path = require('path');
 const logLevel = (process.env.LOG_LVL || 'silent') as WebDriverLogTypes;
 
 export const config: WebdriverIO.Config = {
@@ -28,9 +29,9 @@ export const config: WebdriverIO.Config = {
     connectionRetryCount: 3,
 
     suites: {
-        google_translate_all: [`./google-translate-autotests/**/**/*.spec.ts`],
-        google_translate_functional: [`./google-translate-autotests/functional-autotests/**/*.spec.ts`],
-        google_translate_non_functional: [`./google-translate-autotests/non-functional-autotests/**/*.spec.ts`],
+        google_translate_all: [path.resolve(__dirname, '../../google-translate-autotests/**/*.spec.ts')],
+        google_translate_functional: [path.resolve(__dirname, '../../google-translate-autotests/functional-autotests/*.spec.ts')],
+        google_translate_non_functional: [path.resolve(__dirname, '../../google-translate-autotests/non-functional-autotests/*.spec.ts')],
     },
 
     reporters: [
