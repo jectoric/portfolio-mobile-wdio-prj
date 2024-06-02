@@ -1,4 +1,6 @@
+import assert from 'assert';
 import Elem from '@utils/Elem';
+import { Languages } from '@data/TestLanguages';
 import { step } from '@reporter/AllureDecorators';
 import { ScreenInterface } from '@screens/ApplicationScreens';
 
@@ -26,8 +28,8 @@ class MainScreen implements ScreenInterface<MainScreen> {
     /* Languages panel selectors
     -----------------------------------------------------------*/
     private get switchLanguagesButton() { return new Elem('//android.widget.Button[@content-desc="Swap languages"]'); }
-    private translateFromLanguage(language: string) { return new Elem(`${language}`); }
-    private translateToLanguage(language: string) { return new Elem(`${language}`); }
+    private get translateFromLanguage() { return new Elem('//android.widget.Button[@resource-id="com.google.android.apps.translate:id/language_button_a"]'); }
+    private get translateToLanguage() { return new Elem('//android.widget.Button[@resource-id="com.google.android.apps.translate:id/language_button_b"]'); }
 
     //-----------------------------------------------------------
     // STEP FUNCTIONS
@@ -73,10 +75,21 @@ class MainScreen implements ScreenInterface<MainScreen> {
 
     /* Languages panel functions
     -----------------------------------------------------------*/
+    @step('Check selected transalte from languages')
+    public async checkSelectedFromLanguage(translateFrom: Languages): Promise<void> {
+        assert.equal(await this.translateFromLanguage.getText(), translateFrom, `${translateFrom} language is not viaible in transalte from field`)
+    }
+
+    @step('Check selected transalte to languages')
+    public async checkSelectedToLanguage(translateTo: Languages): Promise<void> {
+        assert.equal(await this.translateToLanguage.getText(), translateTo, `${translateTo} language is not viaible in transalte to field`)
+    }
+
+
     @step('Check selected languages')
-    public async checkSelectedLanguages(translateFrom: string, translateTo: string): Promise<void> {
-        await this.translateFromLanguage(translateFrom).checkElementPresence();
-        await this.translateToLanguage(translateTo).checkElementPresence();
+    public async checkSelectedLanguages(translateFrom: Languages, translateTo: Languages): Promise<void> {
+        await this.checkSelectedFromLanguage(translateFrom);
+        await this.checkSelectedToLanguage(translateTo);
     }
 
     @step('Click on the switch languages button')

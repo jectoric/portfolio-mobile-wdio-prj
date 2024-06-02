@@ -9,12 +9,12 @@ class SearchLanguage implements ScreenInterface<SearchLanguage> {
     // SELECTORS
     //-----------------------------------------------------------
 
-    private get fromLanguageButton() { return new Elem('selector'); }
-    private get toLanguageButton() { return new Elem('selector'); }
-    private screenHeader(languageType: LanguageDirection) { return new Elem(`${languageType}`); }
-    private get searchIcon() { return new Elem('selector'); }
-    private get searchField() { return new Elem('selector'); }
-    private searchOption(language: Languages) { return new Elem(`${language}`); }
+    private get translateFromLanguage() { return new Elem('//android.widget.Button[@resource-id="com.google.android.apps.translate:id/language_button_a"]'); }
+    private get translateToLanguage() { return new Elem('//android.widget.Button[@resource-id="com.google.android.apps.translate:id/language_button_b"]'); }
+    private screenHeader(languageType: LanguageDirection) { return new Elem(`//android.widget.FrameLayout[@content-desc="Translate ${languageType}"]`); }
+    private get searchIcon() { return new Elem('//android.widget.Button[@content-desc="Search"]'); }
+    private get searchField() { return new Elem('//android.widget.EditText[@resource-id="com.google.android.apps.translate:id/search_src_text"]'); }
+    private searchOption(language: Languages) { return new Elem(`//android.widget.TextView[@resource-id="android:id/text1" and @text="${language}"]`); }
 
     //-----------------------------------------------------------
     // PRIVATE FUNCTIONS
@@ -38,21 +38,21 @@ class SearchLanguage implements ScreenInterface<SearchLanguage> {
 
     @step('Seearch and select translate from language')
     public async selectTransalteFromLanguage(language: Languages): Promise<void> {
-        await this.fromLanguageButton.click();
+        await this.translateFromLanguage.click();
         await this.screenHeader(LanguageDirection.FROM);
         await this.searchAndSelectLanguage(language);
     }
 
     @step('Seearch and select translate to language')
     public async selectTransalteToLanguage(language: Languages): Promise<void> {
-        await this.toLanguageButton.click();
+        await this.translateToLanguage.click();
         await this.screenHeader(LanguageDirection.TO);
         await this.searchAndSelectLanguage(language);
     }
 
     @step('Select "Delect language" options')
     public async selectDelectLanguageOption(): Promise<void> {
-        await this.fromLanguageButton.click();
+        await this.translateFromLanguage.click();
         await this.searchOption(Languages.DETECT_LANGUAGE).click();
     }
 }

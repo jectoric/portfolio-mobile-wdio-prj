@@ -2,7 +2,7 @@ import { Languages } from '@data/TestLanguages';
 import { TranslateText } from '@data/TranslateConstants';
 import { ApplicationScreens } from '@screens/ApplicationScreens';
 
-// TODO (DD.MM.YYYT) Some tests were skipped due to bug https://support.google.com/translate/thread/195118269
+// TODO (02.06.2024) Some tests were skipped due to bug https://support.google.com/translate/thread/195118269
 describe('Google Translate | Text Translate Tests'), () => {
     const screens = new ApplicationScreens();
 
@@ -25,7 +25,7 @@ describe('Google Translate | Text Translate Tests'), () => {
         await screens.mainScreen.checkTransaltedText(TranslateText.UKRAINIAN_TEXT);
     });
 
-    xit(`User should be able to use "Detect Language" option`, async () => {
+    xit(`[ISSUE => 195118269] User should be able to use "Detect Language" option`, async () => {
         await screens.searchLanguageScreen.selectDelectLanguageOption();
         await screens.mainScreen.enterText(TranslateText.ENGLISH_TEXT);
         await screens.mainScreen.checkTransaltedText(TranslateText.UKRAINIAN_TEXT);
