@@ -1,5 +1,14 @@
 <h1 align="center">Portfolio mobile WebdriverIO project</h1>
 
+<div style="text-align: center;">
+  <a href="https://github.com/jectoric/portfolio-mobile-wdio-prj/actions/workflows/codeql.yml">
+    <img src="https://github.com/jectoric/portfolio-mobile-wdio-prj/actions/workflows/codeql.yml/badge.svg" alt="CodeQL">
+  </a>
+  <a href="https://github.com/jectoric/portfolio-mobile-wdio-prj/actions/workflows/eslint.yml">
+    <img src="https://github.com/jectoric/portfolio-mobile-wdio-prj/actions/workflows/eslint.yml/badge.svg" alt="ESLint code check">
+  </a>
+</div>
+
 <p align="center">
   Created to demonstrate mobile test automation skills by checking the functionality and appearance of the <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.translate">Google Translate</a> Android application. It operates on the WebdriverIO automation framework and includes functional and non-functional autotest examples for verifying appearance through screenshot comparisons (UI Regression Tests).
 </p>

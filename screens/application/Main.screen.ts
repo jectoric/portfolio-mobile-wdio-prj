@@ -77,14 +77,13 @@ class MainScreen implements ScreenInterface<MainScreen> {
     -----------------------------------------------------------*/
     @step('Check selected transalte from languages')
     public async checkSelectedFromLanguage(translateFrom: Languages): Promise<void> {
-        assert.equal(await this.translateFromLanguage.getText(), translateFrom, `${translateFrom} language is not viaible in transalte from field`)
+        assert.equal(await this.translateFromLanguage.getText(), translateFrom, `${translateFrom} language is not viaible in transalte from field`);
     }
 
     @step('Check selected transalte to languages')
     public async checkSelectedToLanguage(translateTo: Languages): Promise<void> {
-        assert.equal(await this.translateToLanguage.getText(), translateTo, `${translateTo} language is not viaible in transalte to field`)
+        assert.equal(await this.translateToLanguage.getText(), translateTo, `${translateTo} language is not viaible in transalte to field`);
     }
-
 
     @step('Check selected languages')
     public async checkSelectedLanguages(translateFrom: Languages, translateTo: Languages): Promise<void> {
