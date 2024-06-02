@@ -30,8 +30,7 @@
 
 ## Features 
 - **Executing of autotests separatly by suite names** `main screen`, `select language screen` and `all tests`
-- **UI Comparison autotests** that allows to compare current view with predefined scrennshot.
-<span style="color:red; font-weight:bold;">Differences between screenshots are highlighted in red</span>
+- **UI Comparison autotests** that allows to compare current view with predefined scrennshot. Differences between screenshots are highlighted in red
 <br/>
 <div align="center">
 <img src="./demo/DifferenceInAllure.png" width=700/>
