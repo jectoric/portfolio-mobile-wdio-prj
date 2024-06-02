@@ -20,9 +20,26 @@
 }
 ```
 4. Use next commands in terminal to install `ANDROID_HOME` and `sdk` variables
+- Open terminal and use command
+```
+nano ~/.bash_profile 
+```
+OR
+```
+nano ~/.zshrc
+```
+- Add lines and save
 ```
 export ANDROID_HOME=$HOME/Library/Android/sdk
-PATH=$PATH:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/emulator
+```
+- Reopen terminal and check if it worked
+```
+source ~/.bash_profile
+echo $ANDROID_HOME
 ```
 5. Run appium server by using command `appium --base-path /wd/hub`
 6. Run appium inspector
