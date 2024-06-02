@@ -53,7 +53,7 @@
 </div>
 <br/>
 
-- Advanced and easy to use imports. Шnstead of importing several screens, just import `ApplicationScreens` via `@screens` import. Example
+- **Advanced and easy to use imports**. Instead of importing several screens, just import `ApplicationScreens` via `@screens` import
 ```
 import { ApplicationScreens } from '@screens/ApplicationScreens';
 
