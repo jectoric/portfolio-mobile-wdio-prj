@@ -33,14 +33,14 @@
 - UI Comparison autotests that allows to compare current view with predefined scrennshot 
 - Allure report with screenshot and links to issue that which are created in the description if test contains label `[ISSUE => ]`. Also there is custom allure decodator `@step()` for convinient usage
 <br/>
-<img src="./demo/AllureReport.png" width=700/>
+<img align="center" src="./demo/AllureReport.png" width=700/>
 <br/>
 
 - Dividion of wdio.conf settings, which allows to setup pipelines in different places without conflicts
 - Static code analysis scripts. `ESLint` and `CodeQL` analysis on push and pull requests
 - Managed log level, silent by default. This makes logs readable and tests easy to debug, just indicate the desired log level in `.env` file, like `LOG_LVL=debug`
 <br/>
-<img src="./demo/Logs.png" width=700/>
+<img align="center" src="./demo/Logs.png" width=700/>
 <br/>
 
 - Advanced and easy to use imports. Шnstead of importing several screens, just import `ApplicationScreens` via `@screens` import. Example
