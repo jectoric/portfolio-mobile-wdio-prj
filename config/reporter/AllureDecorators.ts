@@ -28,7 +28,7 @@ export function step(name: string) {
     };
 }
 
-export function addJiraTicketToDescription(ticketNumber: string) {
+export function addIssueLinkToDescription(ticketNumber: string) {
     const linkUrl: string = 'https://support.google.com/translate/thread/' + ticketNumber;
     const linkName: string = `${ticketNumber}`;
     const linkHtml: string = `<a href="${linkUrl}" target="_blank">${linkName}</a>`;

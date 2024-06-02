@@ -29,8 +29,39 @@
 ***
 
 ## Features 
+- Executing autotests separatly by suite names `main screen`, `select language screen` and `all tests`
+- UI Comparison autotests that allows to compare current view with predefined scrennshot 
+- Allure report with screenshot and links to issue that which are created in the description if test contains label `[ISSUE => ]`. Also there is custom allure decodator `@step()` for convinient usage
+<br/>
+<img src="./demo/AllureReport.png" width=700/>
+<br/>
+
+- Dividion of wdio.conf settings, which allows to setup pipelines in different places without conflicts
+- Static code analysis scripts. `ESLint` and `CodeQL` analysis on push and pull requests
+- Managed log level, silent by default. This makes logs readable and tests easy to debug, just indicate the desired log level in `.env` file, like `LOG_LVL=debug`
+<br/>
+<img src="./demo/Logs.png" width=700/>
+<br/>
+
+- Advanced and easy to use imports. Шnstead of importing several screens, just import `ApplicationScreens` via `@screens` import. Example
+```
+import { ApplicationScreens } from '@screens/ApplicationScreens';
+
+await screens.mainScreen.function();
+await screens.searchLanguageScreen.function();
+await screens.your_screen.function();
+```
 
 ## Structure
+- `.github` folder - static code analysis pipelines setup
+- `config` folder - webdriver and reporter configurations 
+- `demo` folder - screenshots for `README.md`
+- `docs` folder - for different instructions and rules
+- `google-translate-autotests` folder - divided into functional and non-functional autotests
+- `screens` folder - selectors and screen functions
+- `support` folder - different utils and data for tests
+- in `package.json` you can find scripts and dependencies
+- in `tsconfig.json` you can find imports setup
 
 ## Setup
 ### 1. Precondition:

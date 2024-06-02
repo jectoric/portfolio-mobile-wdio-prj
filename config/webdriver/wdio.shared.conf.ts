@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import { WebDriverLogTypes } from '@wdio/types/build/Options';
-import { addJiraTicketToDescription } from "@reporter/AllureDecorators";
+import { addIssueLinkToDescription } from "@reporter/AllureDecorators";
 import { generateAllureReport, removeAllureDirectories } from '@reporter/AllureReporter';
 
 const path = require('path');
@@ -31,7 +31,7 @@ export const config: WebdriverIO.Config = {
 
     suites: {
         google_translate_all: [path.resolve(__dirname, '../../google-translate-autotests/**/*.spec.ts')],
-        google_translate_functional: [path.resolve(__dirname, '../../google-translate-autotests/functional-autotests/*.spec.ts')],
+        google_translate_functional: [path.resolve(__dirname, '../../google-translate-autotests/functional-autotests/SearchLanguage.spec.ts')],
         google_translate_non_functional: [path.resolve(__dirname, '../../google-translate-autotests/non-functional-autotests/*.spec.ts')],
     },
 
@@ -67,8 +67,8 @@ export const config: WebdriverIO.Config = {
 
         const testName = test.title;
         if (testName.includes('[ISSUE => ')) {
-            const issueMatch = testName.match(/\[BUG => (\S+)]/);
-            if (issueMatch) addJiraTicketToDescription(issueMatch[1]);
+            const issueMatch = testName.match(/\[ISSUE => (\S+)]/);
+            if (issueMatch) addIssueLinkToDescription(issueMatch[1]);
         }
     },
 
