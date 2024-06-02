@@ -31,13 +31,13 @@ describe('Google Translate | Text Translate Tests', () => {
         await screens.mainScreen.checkTransaltedText(TranslateText.UKRAINIAN_TEXT);
     });
 
-    it(`User should be able to clear text by clicking on X button`, async () => {
+    it('User should be able to clear text by clicking on X button', async () => {
         await screens.mainScreen.enterText(TranslateText.ENGLISH_TEXT);
         await screens.mainScreen.clickCrossButton();
         await screens.mainScreen.checkEnterTextCaption();
     });
 
-    it(`User should be able to switch languages`, async () => {
+    it('User should be able to switch languages', async () => {
         await screens.mainScreen.checkSelectedLanguages(Languages.ENGLISH, Languages.UKRAINIAN);
         await screens.mainScreen.clickSwitchLanguagesButton();
         await screens.mainScreen.checkSelectedLanguages(Languages.UKRAINIAN, Languages.ENGLISH);
