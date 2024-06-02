@@ -29,7 +29,7 @@ export function step(name: string) {
 }
 
 export function addJiraTicketToDescription(ticketNumber: string) {
-    const linkUrl: string = 'https://jira.example.com/' + ticketNumber;
+    const linkUrl: string = 'https://support.google.com/translate/thread/' + ticketNumber;
     const linkName: string = `${ticketNumber}`;
     const linkHtml: string = `<a href="${linkUrl}" target="_blank">${linkName}</a>`;
     allureReporter.addDescription(`Link: ${linkHtml}`, 'html');

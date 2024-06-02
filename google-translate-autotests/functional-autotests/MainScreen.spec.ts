@@ -2,8 +2,13 @@ import { Languages } from '@data/TestLanguages';
 import { TranslateText } from '@data/TranslateConstants';
 import { ApplicationScreens } from '@screens/ApplicationScreens';
 
+// TODO (DD.MM.YYYT) Some tests were skipped due to bug https://support.google.com/translate/thread/195118269
 describe('Google Translate | Text Translate Tests'), () => {
     const screens = new ApplicationScreens();
+
+    before('Close sign in popup on the app start', async () => {
+        await screens.mainScreen.closeSignInPopup();
+    });
 
     beforeEach('Check that application was opened', async () => {
         await screens.mainScreen.checkIsOpened();
@@ -15,12 +20,12 @@ describe('Google Translate | Text Translate Tests'), () => {
         await screens.mainScreen.clickBackButton();
     });
 
-    it(`User should be able to translate text`, async () => {
+    xit(`[ISSUE => 195118269] User should be able to translate text`, async () => {
         await screens.mainScreen.enterText(TranslateText.ENGLISH_TEXT);
         await screens.mainScreen.checkTransaltedText(TranslateText.UKRAINIAN_TEXT);
     });
 
-    it(`User should be able to use "Detect Language" option`, async () => {
+    xit(`User should be able to use "Detect Language" option`, async () => {
         await screens.searchLanguageScreen.selectDelectLanguageOption();
         await screens.mainScreen.enterText(TranslateText.ENGLISH_TEXT);
         await screens.mainScreen.checkTransaltedText(TranslateText.UKRAINIAN_TEXT);
@@ -36,9 +41,5 @@ describe('Google Translate | Text Translate Tests'), () => {
         await screens.mainScreen.checkSelectedLanguages(Languages.ENGLISH, Languages.UKRAINIAN);
         await screens.mainScreen.clickSwitchLanguagesButton();
         await screens.mainScreen.checkSelectedLanguages(Languages.UKRAINIAN, Languages.ENGLISH);
-    });
-
-    xit(`[ISSUE => BUG-123] Skipped test demostrations`, async () => {
-        // TODO (DD.MM.YYYT) This test was skipped due to bug https://jira.example.com/BUG-123
     });
 };

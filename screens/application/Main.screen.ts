@@ -10,19 +10,22 @@ class MainScreen implements ScreenInterface<MainScreen> {
 
     /* Start screen selectors
     -----------------------------------------------------------*/
-    private get transalteHeaderText() { return new Elem('selector'); }
-    private get enterTextField() { return new Elem('selector'); }
+    private get signInPopup() { return new Elem('//android.widget.TextView[@text="Back up your translation history"]'); }
+    private get cancelButton() { return new Elem('//android.widget.Button[@text="Cancel"]'); }
+    private get transalteHeaderText() { return new Elem('//android.widget.ImageView[@resource-id="com.google.android.apps.translate:id/logo"]'); }
+    private get enterTextViewField() { return new Elem('//android.widget.TextView[@text="Enter text"]'); }
 
     /* Enter text screen selectors
     -----------------------------------------------------------*/
+    private get enterTextEditField() { return new Elem('//android.widget.EditText[@resource-id="com.google.android.apps.translate:id/text_input_field"]'); }
     private translatedTextField(expectedText: string) { return new Elem(`${expectedText}`); }
-    private get crossButton() { return new Elem('selector'); }
-    private get backButton() { return new Elem('selector'); }
-    private get enterTextCaption() { return new Elem('selector'); }
+    private get crossButton() { return new Elem('//android.widget.Button[@content-desc="Clear"]'); }
+    private get backButton() { return new Elem('//android.widget.ImageButton[@content-desc="Navigate up"]'); }
+    private get enterTextCaption() { return new Elem('//android.widget.EditText[@text="Enter text"]'); }
 
     /* Languages panel selectors
     -----------------------------------------------------------*/
-    private get switchLanguagesButton() { return new Elem('selector'); }
+    private get switchLanguagesButton() { return new Elem('//android.widget.Button[@content-desc="Swap languages"]'); }
     private translateFromLanguage(language: string) { return new Elem(`${language}`); }
     private translateToLanguage(language: string) { return new Elem(`${language}`); }
 
@@ -36,10 +39,16 @@ class MainScreen implements ScreenInterface<MainScreen> {
         return this;
     }
 
+    @step('Close Sign In popup')
+    public async closeSignInPopup(): Promise<void> {
+        await this.signInPopup.checkElementPresence();
+        await this.cancelButton.click();
+    }
+
     @step('Click on the "Enter Text" field and enter text')
     public async enterText(text: string): Promise<void> {
-        await this.enterTextField.click();
-        await this.enterTextField.type(text);
+        await this.enterTextViewField.click();
+        await this.enterTextEditField.type(text);
     }
 
     @step('Check translated text')
