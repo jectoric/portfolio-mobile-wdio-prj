@@ -29,18 +29,25 @@
 ***
 
 ## Features 
-- Executing autotests separatly by suite names `main screen`, `select language screen` and `all tests`
-- UI Comparison autotests that allows to compare current view with predefined scrennshot 
-- Allure report with screenshot and links to issue that which are created in the description if test contains label `[ISSUE => ]`. Also there is custom allure decodator `@step()` for convinient usage
+- **Executing of autotests separatly by suite names** `main screen`, `select language screen` and `all tests`
+- **UI Comparison autotests** that allows to compare current view with predefined scrennshot.
+<span style="color:red; font-weight:bold;">Differences between screenshots are highlighted in red</span>
+<br/>
+<div align="center">
+<img src="./demo/DifferenceInAllure.png" width=700/>
+</div>
+<br/>
+
+- **Allure reports** with screenshot and links to issue that which are created in the description if test contains label `[ISSUE => ]`. Also there is custom allure decodator `@step()` for convinient usage
 <br/>
 <div align="center">
 <img src="./demo/AllureReport.png" width=700/>
 </div>
 <br/>
 
-- Dividion of wdio.conf settings, which allows to setup pipelines in different places without conflicts
-- Static code analysis scripts. `ESLint` and `CodeQL` analysis on push and pull requests
-- Managed log level, silent by default. This makes logs readable and tests easy to debug, just indicate the desired log level in `.env` file, like `LOG_LVL=debug`
+- **Dividion of wdio.conf settings**, which allows to setup pipelines in different places without conflicts
+- **Static code analysis**. `ESLint` and `CodeQL` analysis on push and pull requests
+- **Managed log levels**, silent by default. This makes logs readable and tests easy to debug, just indicate the desired log level in `.env` file, like `LOG_LVL=debug`
 <br/>
 <div align="center">
 <img align="center" src="./demo/Logs.png" width=700/>
