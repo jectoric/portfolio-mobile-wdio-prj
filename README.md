@@ -1,6 +1,8 @@
 <h1 align="center">Portfolio mobile WebdriverIO project</h1>
 
-Created to demonstrate moblile test automation skills by checking the functionality and appearance of the [Google Transalte](https://play.google.com/store/apps/details?id=com.google.android.apps.translate) android application and works on the WebdriverIO automation framework. There are functional and non-functional autotests examples for checking appearance by comparing screenshots (UI Regression Tests)
+<p align="center">
+  Created to demonstrate mobile test automation skills by checking the functionality and appearance of the <a href="https://play.google.com/store/apps/details?id=com.google.android.apps.translate">Google Translate</a> Android application. It operates on the WebdriverIO automation framework and includes functional and non-functional autotest examples for verifying appearance through screenshot comparisons (UI Regression Tests).
+</p>
 
 > [!NOTE]
 > There was no goal to cover all functionality and views of Google Translate
@@ -22,6 +24,36 @@ Created to demonstrate moblile test automation skills by checking the functional
 ## Structure
 
 ## Setup
+### 1. Precondition:
+- Install typescript from the official website if need
+- Downloaded [Node.js and NPM](https://radixweb.com/blog/installing-npm-and-nodejs-on-windows-and-mac)
+
+### 2. Project dependecies setup:
+- Install node modules by run command from project root:
+```
+npm install
+```
+
+### 3. Mobile emulator setup
+- Install latest release appium server from the [official repo](https://github.com/appium/appium), follow instructions
+- Check [instructions]() for Appium Inspector setup 
+- Install [Android Studio](https://developer.android.com/studio) and create desired device, then write capabilities of created device to `.env` file, that should be located in project root. Example of file:
+```
+PLATFORM_NAME=Android
+DEVICE_NAME=Pixel 6 API 30
+PLATFORM_VERSION=11
+
+RETRIES=1 #optional retries on fail number, 0 by default
+MAX_INSTANCES=1 #optional parallel runs number, 1 by default
+LOG_LVL=silent #optional log level, available 'trace' | 'debug' | 'info' | 'warn' | 'error' | 'silent'
+```
+### 4. Run tests
+1. Open android studio and click on play button for created device
+2. Start appium server by using command on terminal `appium --base-path /wd/hub`
+3. Run decired suite from `pakage.json`, for example `run-functional-autotests`. Or by using command from project root:
+```
+npm run run-functional-autotests
+```
 
 ## Built With
 - [TypeScript language](https://www.typescriptlang.org/) - Used to write automation test cases.
