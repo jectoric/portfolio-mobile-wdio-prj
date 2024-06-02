@@ -1,7 +1,7 @@
 import { Languages } from '@data/TestLanguages';
 import { ApplicationScreens } from '@screens/ApplicationScreens';
 
-describe('Google Translate | Text Translate Tests'), () => {
+describe('Google Translate | Text Translate Tests', () => {
     const screens = new ApplicationScreens();
 
     before('Close sign in popup on the app start', async () => {
@@ -23,4 +23,4 @@ describe('Google Translate | Text Translate Tests'), () => {
         await screens.searchLanguageScreen.selectDelectLanguageOption();
         await screens.mainScreen.checkSelectedFromLanguage(Languages.DETECT_LANGUAGE);
     });
-};
+});

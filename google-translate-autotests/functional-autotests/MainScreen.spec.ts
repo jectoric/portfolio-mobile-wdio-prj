@@ -3,7 +3,7 @@ import { TranslateText } from '@data/TranslateConstants';
 import { ApplicationScreens } from '@screens/ApplicationScreens';
 
 // TODO (02.06.2024) Some tests were skipped due to bug https://support.google.com/translate/thread/195118269
-describe('Google Translate | Text Translate Tests'), () => {
+describe('Google Translate | Text Translate Tests', () => {
     const screens = new ApplicationScreens();
 
     before('Close sign in popup on the app start', async () => {
@@ -42,4 +42,4 @@ describe('Google Translate | Text Translate Tests'), () => {
         await screens.mainScreen.clickSwitchLanguagesButton();
         await screens.mainScreen.checkSelectedLanguages(Languages.UKRAINIAN, Languages.ENGLISH);
     });
-};
+});
