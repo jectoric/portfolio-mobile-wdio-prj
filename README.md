@@ -36,7 +36,7 @@ npm install
 
 ### 3. Mobile emulator setup
 - Install latest release appium server from the [official repo](https://github.com/appium/appium), follow instructions
-- Check [instructions]() for Appium Inspector setup 
+- Check [instructions](./docs/APPIUM.md) for Appium Inspector setup 
 - Install [Android Studio](https://developer.android.com/studio) and create desired device, then write capabilities of created device to `.env` file, that should be located in project root. Example of file:
 ```
 PLATFORM_NAME=Android
@@ -50,7 +50,8 @@ LOG_LVL=silent #optional log level, available 'trace' | 'debug' | 'info' | 'warn
 ### 4. Run tests
 1. Open android studio and click on play button for created device
 2. Start appium server by using command on terminal `appium --base-path /wd/hub`
-3. Run decired suite from `pakage.json`, for example `run-functional-autotests`. Or by using command from project root:
+3. Create `app` forlder in project root and add the `.apk` file to it
+4. Run decired suite from `pakage.json`, for example `run-functional-autotests`. Or by using command from project root:
 ```
 npm run run-functional-autotests
 ```

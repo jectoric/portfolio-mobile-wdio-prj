@@ -12,9 +12,8 @@ export const config: WebdriverIO.Config = {
         'appium:automationName': process.env.PLATFORM_NAME === 'ios' ? 'XCUITest' : 'UIAutomator2',
         'appium:udid': process.env.UDID || '',
         'appium:orientation': 'PORTRAIT',
-        'appium:app': join(process.cwd(), `./app/google-translate.apk`),
+        'appium:app': join(process.cwd(), `./app/Translate.apk`),
         'appium:newCommandTimeout': 300,
         'appium:autoAcceptAlerts': true,
-        "appium:disableIdLocatorAutocompletion": true
     }]
 };
