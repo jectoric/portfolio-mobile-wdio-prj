@@ -4,6 +4,7 @@ import { addJiraTicketToDescription } from "@reporter/AllureDecorators";
 import { generateAllureReport, removeAllureDirectories } from '@reporter/AllureReporter';
 
 const path = require('path');
+const sharedState = require('@reporter/SharedState')
 const logLevel = (process.env.LOG_LVL || 'silent') as WebDriverLogTypes;
 
 export const config: WebdriverIO.Config = {
@@ -62,10 +63,19 @@ export const config: WebdriverIO.Config = {
     },
 
     async beforeTest(test) {
+        sharedState.clearScreenshots();
+
         const testName = test.title;
         if (testName.includes('[ISSUE => ')) {
             const issueMatch = testName.match(/\[BUG => (\S+)]/);
             if (issueMatch) addJiraTicketToDescription(issueMatch[1]);
+        }
+    },
+
+    async afterTest(test, context, { error }) {
+        if (error) {
+            const screenshot = await driver.takeScreenshot();
+            sharedState.setScreenshot(test.title, screenshot)
         }
     },
 

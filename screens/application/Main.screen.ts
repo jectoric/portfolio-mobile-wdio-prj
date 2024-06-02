@@ -1,4 +1,3 @@
-import assert from 'assert';
 import Elem from '@utils/Elem';
 import { Languages } from '@data/TestLanguages';
 import { step } from '@reporter/AllureDecorators';
@@ -28,8 +27,8 @@ class MainScreen implements ScreenInterface<MainScreen> {
     /* Languages panel selectors
     -----------------------------------------------------------*/
     private get switchLanguagesButton() { return new Elem('//android.widget.Button[@content-desc="Swap languages"]'); }
-    private get translateFromLanguage() { return new Elem('//android.widget.Button[@resource-id="com.google.android.apps.translate:id/language_button_a"]'); }
-    private get translateToLanguage() { return new Elem('//android.widget.Button[@resource-id="com.google.android.apps.translate:id/language_button_b"]'); }
+    private translateFromLanguage(language: Languages) { return new Elem(`//android.widget.Button[@resource-id="com.google.android.apps.translate:id/language_button_a" and @text="${language}"]`); }
+    private translateToLanguage(language: Languages) { return new Elem(`//android.widget.Button[@resource-id="com.google.android.apps.translate:id/language_button_b" and @text="${language}"]`); }
 
     //-----------------------------------------------------------
     // STEP FUNCTIONS
@@ -77,12 +76,12 @@ class MainScreen implements ScreenInterface<MainScreen> {
     -----------------------------------------------------------*/
     @step('Check selected transalte from languages')
     public async checkSelectedFromLanguage(translateFrom: Languages): Promise<void> {
-        assert.equal(await this.translateFromLanguage.getText(), translateFrom, `${translateFrom} language is not viaible in transalte from field`);
+        await this.translateFromLanguage(translateFrom).checkElementPresence();
     }
 
     @step('Check selected transalte to languages')
     public async checkSelectedToLanguage(translateTo: Languages): Promise<void> {
-        assert.equal(await this.translateToLanguage.getText(), translateTo, `${translateTo} language is not viaible in transalte to field`);
+        await this.translateToLanguage(translateTo).checkElementPresence();
     }
 
     @step('Check selected languages')
