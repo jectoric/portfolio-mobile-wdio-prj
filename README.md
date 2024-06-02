@@ -1,6 +1,6 @@
 <h1 align="center">Portfolio mobile WebdriverIO project</h1>
 
-<div style="text-align: center;">
+<div align="center">
   <a href="https://github.com/jectoric/portfolio-mobile-wdio-prj/actions/workflows/codeql.yml">
     <img src="https://github.com/jectoric/portfolio-mobile-wdio-prj/actions/workflows/codeql.yml/badge.svg" alt="CodeQL">
   </a>
